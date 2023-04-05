@@ -1,5 +1,5 @@
-const ChildFriend = ({ gift }) => {
-  return <div className="w-40 h-40 bg-violet-300">ChildFriend : {gift}</div>;
+const ChildFriend = ({}) => {
+  return <div className="w-40 h-40 bg-indigo-300">ChildFriend </div>;
 };
 
 export default ChildFriend;
