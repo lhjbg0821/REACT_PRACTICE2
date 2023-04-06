@@ -1,4 +1,4 @@
-const AnimalCard = ({ animal, choice }) => {
+const AnimalCard = ({ animal, choice, onClickChoice }) => {
   return (
     <div className="flex flex-col justify-norma items-center">
       <img
@@ -10,6 +10,8 @@ const AnimalCard = ({ animal, choice }) => {
         className={`text-2xl mt-4 px-4 py-2 rounded-md ${
           choice % 2 === 0 ? "bg-pink-400" : "bg-violet-400"
         }`}
+        // 아래 () 소괄호가 또다른 화살표함수를 의미함
+        onClick={onClickChoice(animal)}
       >
         선택
       </button>
