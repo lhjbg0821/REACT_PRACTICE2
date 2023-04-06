@@ -1,6 +1,8 @@
 import { Box } from "@chakra-ui/react";
 import B from "./B";
-import { Fragment } from "react";
+
+//빈태그를 통해 Fragment 는 없어도 됨
+// import { Fragment } from "react";
 
 function A() {
   return (
