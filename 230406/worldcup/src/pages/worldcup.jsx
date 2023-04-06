@@ -21,7 +21,7 @@ const Worldcup = () => {
         <>
           <AnimalCard animal={shuffleAnimal[choice]} choice={choice} />
           <div className="text-2xl mx-8 font-bold">VS</div>
-          <AnimalCard animal={shuffleAnimal[choice + 1]} choice={choice} />
+          <AnimalCard animal={shuffleAnimal[choice + 1]} choice={choice + 1} />
         </>
       )}
     </div>
