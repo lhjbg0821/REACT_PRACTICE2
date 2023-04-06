@@ -1,58 +1,39 @@
 import {
   ChakraProvider,
-  Box,
   Button,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
-  MenuGroup,
-  MenuDivider,
+  useDisclosure,
+  Flex,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
+  ModalFooter,
 } from "@chakra-ui/react";
-import { PhoneIcon, ChevronDownIcon } from "@chakra-ui/icons";
-import { useState } from "react";
 
 function App() {
-  const [isLoading, setIsLoading] = useState(false);
+  const { onClick, onOpen, onClose, isOpen } = useDisclosure();
+
   return (
     <ChakraProvider>
-      <Box color="red.400">Hello, Chakra UI~</Box>
-      <Button
-        isLoading={isLoading}
-        colorScheme="pink"
-        leftIcon={<PhoneIcon />}
-        variant={"solid"}
-      >
-        Call
-      </Button>
-      <Menu>
-        <MenuButton
-          colorScheme="green"
-          as={Button}
-          rightIcon={<ChevronDownIcon />}
-        >
-          저녁 메뉴
-        </MenuButton>
-        <MenuList bgColor={"gray.50"}>
-          <MenuGroup title="파스타">
-            <MenuItem>알리오올리오</MenuItem>
-            <MenuItem>토마토파스타</MenuItem>
-            <MenuItem>크림파스타</MenuItem>
-          </MenuGroup>
-          <MenuDivider />
-          <MenuGroup title="치킨">
-            <MenuItem>양념치킨</MenuItem>
-            <MenuItem>후라이드치킨</MenuItem>
-            <MenuItem>굽네치킨</MenuItem>
-          </MenuGroup>
-          <MenuDivider />
-          <MenuGroup title="피자">
-            <MenuItem>파인애플 피자</MenuItem>
-            <MenuItem>토마토 피자</MenuItem>
-            <MenuItem>치즈 피자</MenuItem>
-          </MenuGroup>
-        </MenuList>
-      </Menu>
+      <Flex minH={"100vh"} justifyContent={"center"} alignItems={"center"}>
+        <Button onClick={onOpen}>Open</Button>
+        <Modal isOpen={isOpen} onClose={onClose}>
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>What's Up!</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>안녕하세요 저는 블록체인 개발자 입니다.</ModalBody>
+            <ModalFooter>
+              <Button mr={4} onClick={onClose}>
+                닫기
+              </Button>
+              Designed by, ollok_99
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+      </Flex>
     </ChakraProvider>
   );
 }
